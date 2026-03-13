@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Github, Linkedin, Mail, FileText, ArrowUpRight, ArrowUp } from "lucide-react";
+import { Github, Linkedin, Mail, FileText, ArrowUpRight, ArrowUp, ChevronDown } from "lucide-react";
 import { EinsteinTiling } from "./EinsteinTiling";
 
 const profile = {
@@ -161,10 +161,11 @@ const education = {
   directedStudies: "Directed Studies: Literature, Philosophy, Historical and Political Thought",
 };
 
-const chessBlurb =
-  "I have represented Canada at four World Youth Chess Championships, achieving a top age group ranking of 6th in the world. I'm also a USCF National Master, placed 37th in the World Open, and 39th in the North American Open.";
+const chessEmbedUrl = "https://www.chess.com/emboard?id=14723929";
 const chessProfileUrl = "https://www.chess.com/member/karpovian123/";
 
+const chessBlurb =
+  "I have represented Canada at four World Youth Chess Championships, achieving a top age group ranking of 6th in the world. I'm also a USCF National Master, placed 37th in the World Open, and 39th in the North American Open.";
 const navItems = [
   ["news", "News"],
   ["education", "Education"],
@@ -299,6 +300,40 @@ function TextEntry({ overline, title, rightText, body, bodyContent, href, locati
         </div>
       </div>
     </a>
+  );
+}
+
+function ChessGameEmbed({ url }) {
+  const [expanded, setExpanded] = useState(false);
+  return (
+    <div className="mt-6 border border-cyan-400/20 rounded-lg overflow-hidden">
+      <button
+        type="button"
+        onClick={() => setExpanded((e) => !e)}
+        className="interactive w-full flex items-center justify-between gap-2 px-4 py-3 text-left text-sm font-medium text-white/80 hover:text-white transition-colors"
+      >
+        <span>One of my favorite games</span>
+        <ChevronDown
+          className={`h-4 w-4 text-white/50 transition-transform duration-200 shrink-0 ${expanded ? "rotate-180" : ""}`}
+        />
+      </button>
+      {expanded && (
+        <div className="border-t border-cyan-400/20 bg-black/30">
+          {url ? (
+            <iframe
+              src={url}
+              title="Chess game"
+              className="w-full aspect-[4/3] max-h-[480px]"
+              allowFullScreen
+            />
+          ) : (
+            <p className="p-4 text-[13px] text-white/50">
+              Add your Chess.com embed URL in the <code className="text-white/70">chessEmbedUrl</code> constant. Get it from any game: Share → Embed.
+            </p>
+          )}
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -546,6 +581,7 @@ export default function App() {
                   </a>
                   {" "}— send me a friend request!
                 </p>
+                <ChessGameEmbed url={chessEmbedUrl} />
               </div>
             </Section>
           </main>
