@@ -162,7 +162,7 @@ const education = {
 };
 
 const chessBlurb =
-  "Many years ago, I represented Canada at four World Youth Chess Championships, achieving a top age group ranking of 6th in the world. I'm also a USCF National Master, placed 37th in the World Open, and 39th in the North American Open.";
+  "I have represented Canada at four World Youth Chess Championships, achieving a top age group ranking of 6th in the world. I'm also a USCF National Master, placed 37th in the World Open, and 39th in the North American Open.";
 const chessProfileUrl = "https://www.chess.com/member/karpovian123/";
 
 const navItems = [

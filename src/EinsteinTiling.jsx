@@ -53,7 +53,7 @@ export function EinsteinTiling({ className = "", opacity = 0.04, level = 2 }) {
           ) : null
         )}
       </g>
-      <g style={{ opacity: 0.35 }}>
+      <g style={{ opacity: 0.55 }}>
         {polygons.map((verts, i) =>
           i % 3 === 0 ? (
             <path
