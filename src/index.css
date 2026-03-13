@@ -2,6 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Dark theme (default) */
+:root {
+  --theme-bg: #0a0a0d;
+  --theme-bg-alt: #0d0d11;
+  --theme-text: #ffffff;
+  --theme-text-muted: rgba(255, 255, 255, 0.7);
+  --theme-text-dim: rgba(255, 255, 255, 0.5);
+  --theme-accent: rgb(34, 211, 238);
+  --theme-accent-muted: rgba(34, 211, 238, 0.8);
+  --theme-border: rgba(34, 211, 238, 0.2);
+  --theme-einstein-stroke: rgb(34, 211, 238);
+  --theme-einstein-muted: rgba(255, 255, 255, 0.5);
+  --theme-einstein-svg-opacity: 0.2;
+  --theme-einstein-opacity: 0.55;
+  --theme-vignette: rgba(0, 0, 0, 0.4);
+}
+
+/* Light theme */
+[data-theme="light"] {
+  --theme-bg: #f5f0e8;
+  --theme-bg-alt: #ebe5dc;
+  --theme-text: #1a1a1a;
+  --theme-text-muted: #4a4a4a;
+  --theme-text-dim: #6b6b6b;
+  --theme-accent: #0891b2;
+  --theme-accent-muted: #0e7490;
+  --theme-border: rgba(8, 145, 178, 0.35);
+  --theme-einstein-stroke: #0891b2;
+  --theme-einstein-muted: rgba(26, 26, 26, 0.35);
+  --theme-einstein-svg-opacity: 0.3;
+  --theme-einstein-opacity: 0.6;
+  --theme-vignette: rgba(0, 0, 0, 0.06);
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;

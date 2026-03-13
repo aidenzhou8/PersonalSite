@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Github, Linkedin, Mail, FileText, ArrowUpRight, ArrowUp, ChevronDown } from "lucide-react";
+import { Github, Linkedin, Mail, FileText, ArrowUpRight, ArrowUp, ChevronDown, Sun, Moon } from "lucide-react";
 import { EinsteinTiling } from "./EinsteinTiling";
 
 const profile = {
@@ -32,7 +32,7 @@ const recentNews = [
           href="https://allenai.org/blog/fluid-benchmarking"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-cyan-400/80 hover:text-cyan-400 transition-colors"
+          className="text-theme-accent-muted hover:text-theme-accent transition-colors"
         >
           fluid benchmarking
         </a>{" "}
@@ -71,7 +71,7 @@ const experience = [
           href="https://cncl.yale.edu/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-cyan-400/80 hover:text-cyan-400 transition-colors"
+          className="text-theme-accent-muted hover:text-theme-accent transition-colors"
         >
           Cognitive and Neural Computation Lab
         </a>
@@ -93,18 +93,18 @@ const experience = [
           href="https://aniruddh-alt.github.io/from-tokens-to-semantics-website/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-cyan-400/80 hover:text-cyan-400 transition-colors"
+          className="text-theme-accent-muted hover:text-theme-accent transition-colors"
         >
           paper
         </a>
         {" "}on how polysemanticity develops during language model pretraining. Analyzed feature clusters across Pythia checkpoints to study how neuron activation spaces evolve from exploration to specialization. Presented at MechInterp @ NeurIPS 2025.
-        <p className="mt-3 text-[13px] text-white/50 italic">
+        <p className="mt-3 text-[13px] text-theme-text-dim italic">
           Limaye, S.*, Ramesh, A.*, <strong>Zhou, A.*</strong>, et al. (2025). From Tokens to Semantics: The Emergence and Stabilization of Polysemanticity in Language Models.{" "}
           <a
             href="https://mechinterpworkshop.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-cyan-400/80 hover:text-cyan-400 transition-colors not-italic"
+            className="text-theme-accent-muted hover:text-theme-accent transition-colors not-italic"
           >
             NeurIPS 2025 Workshop on Mechanistic Interpretability
           </a>
@@ -177,22 +177,17 @@ const navItems = [
 function BackgroundArt() {
   return (
     <div className="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden="true">
-      {/* Base gradient */}
       <div
         className="absolute inset-0"
         style={{
-          background:
-            "linear-gradient(to bottom, #0a0a0d 0%, #0d0d11 100%)",
+          background: "linear-gradient(to bottom, var(--theme-bg) 0%, var(--theme-bg-alt) 100%)",
         }}
       />
-      {/* Einstein hat tiling (aperiodic monotile) */}
-      <EinsteinTiling opacity={0.15} />
-      {/* Vignette */}
+      <EinsteinTiling />
       <div
         className="absolute inset-0"
         style={{
-          background:
-            "radial-gradient(ellipse 80% 80% at 50% 50%, transparent 50%, rgba(0,0,0,0.4) 100%)",
+          background: `radial-gradient(ellipse 80% 80% at 50% 50%, transparent 50%, var(--theme-vignette) 100%)`,
         }}
       />
     </div>
@@ -204,10 +199,10 @@ function Section({ id, title, children, isActive, isVisible }) {
     <section
       id={id}
       className={`scroll-mt-24 pt-10 first:pt-12 transition-all duration-500 ${
-        isActive ? "border-l-2 border-cyan-500/50 pl-6 -ml-6" : ""
+        isActive ? "border-l-2 border-theme-accent pl-6 -ml-6" : ""
       } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
     >
-      <h2 className="mb-6 text-sm font-medium uppercase tracking-[0.25em] text-white/50">
+      <h2 className="mb-6 text-sm font-medium uppercase tracking-[0.25em] text-theme-text-dim">
         {title}
       </h2>
       {children}
@@ -221,7 +216,7 @@ function InlineLink({ href, label, icon: Icon }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="interactive inline-flex items-center gap-2 text-sm text-white/70 transition-all duration-200 hover:text-cyan-400 hover:scale-105"
+      className="interactive inline-flex items-center gap-2 text-sm text-theme-text-muted transition-all duration-200 hover:text-theme-accent hover:scale-105"
     >
       <Icon className="h-4 w-4" />
       <span>{label}</span>
@@ -235,20 +230,20 @@ function TimelineItem({ kicker, title, body, bodyContent, href }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="interactive group inline-flex items-center gap-1.5 text-lg font-medium text-white transition-colors hover:text-cyan-400"
+      className="interactive group inline-flex items-center gap-1.5 text-lg font-medium text-theme-text transition-colors hover:text-theme-accent"
     >
       {title}
       <ArrowUpRight className="h-4 w-4 opacity-60 group-hover:opacity-100" />
     </a>
   ) : (
-    <h3 className="text-lg font-medium text-white">{title}</h3>
+    <h3 className="text-lg font-medium text-theme-text">{title}</h3>
   );
   return (
     <div className="grid gap-4 py-6 md:grid-cols-[120px_1fr] md:gap-8">
-      <p className="font-mono text-xs font-medium uppercase tracking-wider text-white/50 whitespace-nowrap">{kicker}</p>
+      <p className="font-mono text-xs font-medium uppercase tracking-wider text-theme-text-dim whitespace-nowrap">{kicker}</p>
       <div>
         {titleEl}
-        <p className="mt-1.5 text-[15px] leading-relaxed text-white/70">{bodyContent ?? body}</p>
+        <p className="mt-1.5 text-[15px] leading-relaxed text-theme-text-muted">{bodyContent ?? body}</p>
       </div>
     </div>
   );
@@ -257,9 +252,9 @@ function TimelineItem({ kicker, title, body, bodyContent, href }) {
 function TextEntry({ overline, title, rightText, body, bodyContent, href, location }) {
   const rightColumn = (
       <div className="flex flex-col items-end gap-1.5 text-right shrink-0">
-      <p className="font-mono text-xs font-medium uppercase tracking-wider text-white/50 whitespace-nowrap">{rightText}</p>
+      <p className="font-mono text-xs font-medium uppercase tracking-wider text-theme-text-dim whitespace-nowrap">{rightText}</p>
       {location ? (
-        <span className="text-xs text-white/45 whitespace-nowrap">{location}</span>
+        <span className="text-xs text-theme-text-dim whitespace-nowrap">{location}</span>
       ) : null}
     </div>
   );
@@ -267,9 +262,9 @@ function TextEntry({ overline, title, rightText, body, bodyContent, href, locati
   const content = (
       <div className="grid gap-4 py-6 md:grid-cols-[1fr_120px] md:gap-8">
       <div>
-        {overline ? <p className="mb-1 text-xs font-medium uppercase tracking-wider text-white/50">{overline}</p> : null}
-        <h3 className="text-lg font-medium text-white">{title}</h3>
-        <p className="mt-1.5 max-w-2xl text-[15px] leading-relaxed text-white/70">{bodyContent ?? body}</p>
+        {overline ? <p className="mb-1 text-xs font-medium uppercase tracking-wider text-theme-text-dim">{overline}</p> : null}
+        <h3 className="text-lg font-medium text-theme-text">{title}</h3>
+        <p className="mt-1.5 max-w-2xl text-[15px] leading-relaxed text-theme-text-muted">{bodyContent ?? body}</p>
       </div>
       <div className="flex items-start justify-end md:pt-0.5">
         {rightColumn}
@@ -288,12 +283,12 @@ function TextEntry({ overline, title, rightText, body, bodyContent, href, locati
     >
       <div className="group grid gap-4 py-6 md:grid-cols-[1fr_120px] md:gap-8">
         <div>
-          {overline ? <p className="mb-1 text-xs font-medium uppercase tracking-wider text-white/50">{overline}</p> : null}
-          <h3 className="inline-flex items-center gap-1.5 text-lg font-medium text-white group-hover:text-cyan-400 transition-colors">
+          {overline ? <p className="mb-1 text-xs font-medium uppercase tracking-wider text-theme-text-dim">{overline}</p> : null}
+          <h3 className="inline-flex items-center gap-1.5 text-lg font-medium text-theme-text group-hover:text-theme-accent transition-colors">
             {title}
             <ArrowUpRight className="h-4 w-4 opacity-60 group-hover:opacity-100" />
           </h3>
-          <p className="mt-1.5 max-w-2xl text-[15px] leading-relaxed text-white/70">{bodyContent ?? body}</p>
+          <p className="mt-1.5 max-w-2xl text-[15px] leading-relaxed text-theme-text-muted">{bodyContent ?? body}</p>
         </div>
         <div className="flex items-start justify-end md:pt-0.5">
           {rightColumn}
@@ -306,19 +301,19 @@ function TextEntry({ overline, title, rightText, body, bodyContent, href, locati
 function ChessGameEmbed({ url }) {
   const [expanded, setExpanded] = useState(false);
   return (
-    <div className="mt-6 border border-cyan-400/20 rounded-lg overflow-hidden">
+    <div className="mt-6 border border-theme-border rounded-lg overflow-hidden">
       <button
         type="button"
         onClick={() => setExpanded((e) => !e)}
-        className="interactive w-full flex items-center justify-between gap-2 px-4 py-3 text-left text-sm font-medium text-white/80 hover:text-white transition-colors"
+        className="interactive w-full flex items-center justify-between gap-2 px-4 py-3 text-left text-sm font-medium text-theme-text-muted hover:text-theme-text transition-colors"
       >
         <span>One of my favorite games</span>
         <ChevronDown
-          className={`h-4 w-4 text-white/50 transition-transform duration-200 shrink-0 ${expanded ? "rotate-180" : ""}`}
+          className={`h-4 w-4 text-theme-text-dim transition-transform duration-200 shrink-0 ${expanded ? "rotate-180" : ""}`}
         />
       </button>
       {expanded && (
-        <div className="border-t border-cyan-400/20 bg-black/30">
+        <div className="border-t border-theme-border bg-theme-bg-alt/50">
           {url ? (
             <iframe
               src={url}
@@ -327,8 +322,8 @@ function ChessGameEmbed({ url }) {
               allowFullScreen
             />
           ) : (
-            <p className="p-4 text-[13px] text-white/50">
-              Add your Chess.com embed URL in the <code className="text-white/70">chessEmbedUrl</code> constant. Get it from any game: Share → Embed.
+            <p className="p-4 text-[13px] text-theme-text-dim">
+              Add your Chess.com embed URL in the <code className="text-theme-text-muted">chessEmbedUrl</code> constant. Get it from any game: Share → Embed.
             </p>
           )}
         </div>
@@ -337,10 +332,24 @@ function ChessGameEmbed({ url }) {
   );
 }
 
+const THEME_KEY = "personal-site-theme";
+
 export default function App() {
   const [activeSection, setActiveSection] = useState("news");
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [visibleSections, setVisibleSections] = useState({ news: true });
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem(THEME_KEY) || "dark";
+    }
+    return "dark";
+  });
+
+  const toggleTheme = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    localStorage.setItem(THEME_KEY, next);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -389,33 +398,44 @@ export default function App() {
       <style>{`
         @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Poppins:wght@300;400;500;600;700&display=swap");
       `}</style>
-      <div className="min-h-screen bg-[#0a0a0d] text-white antialiased [font-family:'Poppins',Inter,ui-sans-serif,system-ui,-apple-system,sans-serif]">
+      <div className="min-h-screen bg-theme-bg text-theme-text antialiased transition-colors duration-300 [font-family:'Poppins',Inter,ui-sans-serif,system-ui,-apple-system,sans-serif]" data-theme={theme}>
         <BackgroundArt />
 
         <div className="relative mx-auto max-w-2xl px-6 py-16 md:max-w-[44rem] md:px-8 md:py-24">
           <header className="pb-6">
-            <h1 className="text-4xl font-semibold tracking-tight text-white md:text-5xl">
-              {profile.name}
-            </h1>
-            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/60">
-              I'm a sophomore at Yale studying Computer Science and Mathematics. I'm drawn to the intersection of theory and practice — from analysis, algorithms, and foundational machine learning to AI safety and computational neuroscience. I aim to develop scalable systems that serve the public interest. Beyond that, I write, play chess competitively, and tutor math.
-            </p>
-            <p className="mt-4 text-xs font-medium uppercase tracking-wider text-white/40">
-              {profile.location}
-            </p>
-
-            <div className="mt-8 flex flex-wrap gap-6">
-              {profile.links.map((link) => (
-                <InlineLink key={link.label} {...link} />
-              ))}
+            <div className="flex items-start justify-between gap-4">
+              <div className="min-w-0 flex-1">
+                <h1 className="text-4xl font-semibold tracking-tight text-theme-text md:text-5xl">
+                  {profile.name}
+                </h1>
+                <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-theme-text-muted">
+                  I'm a sophomore at Yale studying Computer Science and Mathematics. I'm drawn to the intersection of theory and practice — from analysis, algorithms, and foundational machine learning to AI safety and computational neuroscience. I aim to develop scalable systems that serve the public interest. Beyond that, I write, play chess competitively, and tutor math.
+                </p>
+                <p className="mt-4 text-xs font-medium uppercase tracking-wider text-theme-text-dim">
+                  {profile.location}
+                </p>
+                <div className="mt-8 flex flex-wrap gap-6">
+                  {profile.links.map((link) => (
+                    <InlineLink key={link.label} {...link} />
+                  ))}
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className="interactive shrink-0 rounded-full p-2 text-theme-text-dim transition-colors hover:text-theme-accent"
+                aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              >
+                {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              </button>
             </div>
 
-            <nav className="mt-10 flex flex-wrap gap-x-8 gap-y-2 border-t border-cyan-400/20 pt-8 text-sm">
+            <nav className="mt-10 flex flex-wrap gap-x-8 gap-y-2 border-t border-theme-border pt-8 text-sm">
               {navItems.map(([href, label]) => (
                 <a
                   key={href}
                   href={`#${href}`}
-                  className="interactive text-white/50 transition-all duration-200 hover:text-cyan-400 hover:scale-105"
+                  className="interactive text-theme-text-dim transition-all duration-200 hover:text-theme-accent hover:scale-105"
                 >
                   {label}
                 </a>
@@ -423,13 +443,13 @@ export default function App() {
             </nav>
           </header>
 
-          <main className="border-t border-cyan-400/20 pt-4 pb-24 md:pt-6">
+          <main className="border-t border-theme-border pt-4 pb-24 md:pt-6">
             <Section
               id="news"
               title="Recent News"
               isActive={activeSection === "news"}
               isVisible={visibleSections.news}>
-              <div className="divide-y divide-cyan-400/20">
+              <div className="divide-y divide-theme-border">
                 {recentNews.map((item) => (
                   <TimelineItem
                     key={`${item.date}-${item.title}`}
@@ -448,22 +468,22 @@ export default function App() {
               title="Education"
               isActive={activeSection === "education"}
               isVisible={visibleSections.education}>
-              <div className="divide-y divide-cyan-400/20">
+              <div className="divide-y divide-theme-border">
                 <div className="grid gap-4 py-6 md:grid-cols-[1fr_120px] md:gap-8">
                   <div>
-                    <p className="text-[15px] font-medium text-white/90">{education.institution}</p>
-                    <p className="mt-1.5 text-[15px] leading-relaxed text-white/65">{education.degree} · GPA: {education.gpa}</p>
+                    <p className="text-[15px] font-medium text-theme-text">{education.institution}</p>
+                    <p className="mt-1.5 text-[15px] leading-relaxed text-theme-text-muted">{education.degree} · GPA: {education.gpa}</p>
                   </div>
                   <div className="flex items-start justify-end md:pt-0.5">
                     <div className="flex flex-col items-end gap-1.5 text-right shrink-0">
-                      <p className="font-mono text-xs font-medium uppercase tracking-wider text-white/50 whitespace-nowrap">{education.years}</p>
-                      <span className="text-xs text-white/45 whitespace-nowrap">{education.location}</span>
+                      <p className="font-mono text-xs font-medium uppercase tracking-wider text-theme-text-dim whitespace-nowrap">{education.years}</p>
+                      <span className="text-xs text-theme-text-dim whitespace-nowrap">{education.location}</span>
                     </div>
                   </div>
                 </div>
                 <div className="py-6">
-                  <p className="mb-1 text-[11px] font-medium uppercase tracking-wider text-white/45">Selected coursework</p>
-                  <p className="text-[15px] leading-relaxed text-white/65">
+                  <p className="mb-1 text-[11px] font-medium uppercase tracking-wider text-theme-text-dim">Selected coursework</p>
+                  <p className="text-[15px] leading-relaxed text-theme-text-muted">
                     {education.selectedCoursework}
                     <br />
                     {education.directedStudies}
@@ -477,7 +497,7 @@ export default function App() {
               title="Experience"
               isActive={activeSection === "experience"}
               isVisible={visibleSections.experience}>
-              <div className="divide-y divide-cyan-400/20">
+              <div className="divide-y divide-theme-border">
                 {experience.map((item) => (
                   <TextEntry
                     key={`${item.org}-${item.role}`}
@@ -499,13 +519,13 @@ export default function App() {
               isVisible={visibleSections.writing}>
               <div className="space-y-10">
                 <div>
-                  <p className="mb-6 text-[15px] leading-relaxed text-white/70">
+                  <p className="mb-6 text-[15px] leading-relaxed text-theme-text-muted">
                     I'm a student journalist on the managing boards of two Yale publications. As Data Editor at the{" "}
                     <a
                       href="https://yaledailynews.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-cyan-400/80 hover:text-cyan-400 transition-colors"
+                      className="text-theme-accent-muted hover:text-theme-accent transition-colors"
                     >
                       Yale Daily News
                     </a>
@@ -514,13 +534,13 @@ export default function App() {
                       href="https://www.yalescientific.org"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-cyan-400/80 hover:text-cyan-400 transition-colors"
+                      className="text-theme-accent-muted hover:text-theme-accent transition-colors"
                     >
                       Yale Scientific Magazine
                     </a>
                     .
                   </p>
-                  <p className="mb-6 text-[15px] leading-relaxed text-white/70">
+                  <p className="mb-6 text-[15px] leading-relaxed text-theme-text-muted">
                     Beyond that, my poetry and essays have been selected for awards, including the Comet anthology and Yale's Poorvu Center Writing Contest. Below is a selection of my favorite reporting and creative work.
                   </p>
                   <div className="mt-6 space-y-3">
@@ -532,12 +552,12 @@ export default function App() {
                       rel="noopener noreferrer"
                       className="interactive flex items-baseline gap-2 group"
                     >
-                      <span className="text-xs font-medium uppercase tracking-wider text-white/50 shrink-0">{piece.outlet}</span>
+                      <span className="text-xs font-medium uppercase tracking-wider text-theme-text-dim shrink-0">{piece.outlet}</span>
                       <span className="flex-1 min-w-0 inline-flex items-baseline gap-1.5">
-                        <span className="text-[15px] text-white/70 group-hover:text-cyan-400 transition-colors">{piece.title}</span>
+                        <span className="text-[15px] text-theme-text-muted group-hover:text-theme-accent transition-colors">{piece.title}</span>
                         <ArrowUpRight className="h-3.5 w-3.5 opacity-50 group-hover:opacity-100 shrink-0" />
                         {piece.sidenote ? (
-                          <span className="ml-1 text-xs text-white/50">({piece.sidenote})</span>
+                          <span className="ml-1 text-xs text-theme-text-dim">({piece.sidenote})</span>
                         ) : null}
                       </span>
                     </a>
@@ -550,9 +570,9 @@ export default function App() {
                       rel="noopener noreferrer"
                       className="interactive flex items-baseline gap-2 group"
                     >
-                      <span className="text-xs font-medium uppercase tracking-wider text-white/50 shrink-0">poem</span>
+                      <span className="text-xs font-medium uppercase tracking-wider text-theme-text-dim shrink-0">poem</span>
                       <span className="inline-flex items-baseline gap-1.5">
-                        <span className="text-[15px] text-white/70 group-hover:text-cyan-400 transition-colors">{piece.title}</span>
+                        <span className="text-[15px] text-theme-text-muted group-hover:text-theme-accent transition-colors">{piece.title}</span>
                         <ArrowUpRight className="h-3.5 w-3.5 opacity-50 group-hover:opacity-100 shrink-0" />
                       </span>
                     </a>
@@ -568,14 +588,14 @@ export default function App() {
               isActive={activeSection === "chess"}
               isVisible={visibleSections.chess}>
               <div className="space-y-4">
-                <p className="text-[15px] leading-relaxed text-white/70">{chessBlurb}</p>
-                <p className="text-[15px] leading-relaxed text-white/70">
+                <p className="text-[15px] leading-relaxed text-theme-text-muted">{chessBlurb}</p>
+                <p className="text-[15px] leading-relaxed text-theme-text-muted">
                   I try to stay active on{" "}
                   <a
                     href={chessProfileUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-cyan-400/80 hover:text-cyan-400 transition-colors"
+                    className="text-theme-accent-muted hover:text-theme-accent transition-colors"
                   >
                     chess.com
                   </a>
@@ -586,9 +606,9 @@ export default function App() {
             </Section>
           </main>
 
-          <footer className="pt-6 pb-8 border-t border-cyan-400/20 space-y-4">
+          <footer className="pt-6 pb-8 border-t border-theme-border space-y-4">
             <div className="flex items-center justify-between">
-              <p className="text-xs text-white/40">© {new Date().getFullYear()}</p>
+              <p className="text-xs text-theme-text-dim">© {new Date().getFullYear()}</p>
               {showBackToTop && (
                 <a
                   href="#"
@@ -596,20 +616,20 @@ export default function App() {
                     e.preventDefault();
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
-                  className="interactive inline-flex items-center gap-1.5 text-xs text-white/50 transition hover:text-white/80 hover:scale-105"
+                  className="interactive inline-flex items-center gap-1.5 text-xs text-theme-text-dim transition hover:text-theme-text-muted hover:scale-105"
                 >
                   <ArrowUp className="h-3.5 w-3.5" />
                   Back to top
                 </a>
               )}
             </div>
-            <p className="text-xs text-white/40">
+            <p className="text-xs text-theme-text-dim">
               Made with React, Vite, and Tailwind CSS. Background: an aperiodic{" "}
               <a
                 href="https://en.wikipedia.org/wiki/Einstein_problem"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-cyan-400/80 hover:text-cyan-400 transition-colors"
+                className="text-theme-accent-muted hover:text-theme-accent transition-colors"
               >
                 Einstein tiling
               </a>

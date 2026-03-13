@@ -17,7 +17,7 @@ export function EinsteinTiling({ className = "", opacity = 0.04, level = 2 }) {
     <svg
       className={`absolute left-1/2 top-1/2 ${className}`}
       style={{
-        opacity: 0.12,
+        opacity: "var(--theme-einstein-svg-opacity, 0.12)",
         transform: "translate(-50%, -50%)",
         width: "250vmax",
         height: "250vmax",
@@ -47,20 +47,20 @@ export function EinsteinTiling({ className = "", opacity = 0.04, level = 2 }) {
               key={i}
               d={polygonToPath(verts)}
               fill="none"
-              stroke="rgba(255,255,255,0.5)"
+              stroke="var(--theme-einstein-muted)"
               strokeWidth="0.6"
             />
           ) : null
         )}
       </g>
-      <g style={{ opacity: 0.55 }}>
+      <g style={{ opacity: "var(--theme-einstein-opacity, 0.55)" }}>
         {polygons.map((verts, i) =>
           i % 3 === 0 ? (
             <path
               key={i}
               d={polygonToPath(verts)}
               fill="none"
-              stroke="rgb(34,211,238)"
+              stroke="var(--theme-einstein-stroke)"
               strokeWidth="0.8"
             />
           ) : null

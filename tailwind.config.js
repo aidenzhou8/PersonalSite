@@ -9,6 +9,18 @@ export default {
       fontFamily: {
         mono: ["'JetBrains Mono'", "ui-monospace", "monospace"],
       },
+      colors: {
+        theme: {
+          bg: "var(--theme-bg)",
+          "bg-alt": "var(--theme-bg-alt)",
+          text: "var(--theme-text)",
+          "text-muted": "var(--theme-text-muted)",
+          "text-dim": "var(--theme-text-dim)",
+          accent: "var(--theme-accent)",
+          "accent-muted": "var(--theme-accent-muted)",
+          border: "var(--theme-border)",
+        },
+      },
     },
   },
   plugins: [],
