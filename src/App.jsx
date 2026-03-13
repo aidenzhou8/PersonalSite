@@ -154,6 +154,7 @@ const poetry = [
 const education = {
   institution: "Yale University",
   degree: "B.S. in Computer Science and Mathematics",
+  gpa: "4.0/4.0",
   years: "Aug. 2024 — May 2028",
   location: "New Haven, CT",
   selectedCoursework: "Algorithms · Computational Vision · Deep Learning on Graph Structured Data · Advanced Linear Algebra · Analysis I / II · Discrete Math · Measure Theory ·",
@@ -385,19 +386,6 @@ export default function App() {
                 </a>
               ))}
             </nav>
-
-            <p className="mt-10 text-xs text-white/40">
-              Made with React, Vite, and Tailwind CSS. Background: an aperiodic{" "}
-              <a
-                href="https://en.wikipedia.org/wiki/Einstein_problem"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-cyan-400/80 hover:text-cyan-400 transition-colors"
-              >
-                Einstein tiling
-              </a>
-              .
-            </p>
           </header>
 
           <main className="border-t border-cyan-400/20 pt-4 pb-24 md:pt-6">
@@ -429,7 +417,7 @@ export default function App() {
                 <div className="grid gap-4 py-6 md:grid-cols-[1fr_120px] md:gap-8">
                   <div>
                     <p className="text-[15px] font-medium text-white/90">{education.institution}</p>
-                    <p className="mt-1.5 text-[15px] leading-relaxed text-white/65">{education.degree}</p>
+                    <p className="mt-1.5 text-[15px] leading-relaxed text-white/65">{education.degree} · GPA: {education.gpa}</p>
                   </div>
                   <div className="flex items-start justify-end md:pt-0.5">
                     <div className="flex flex-col items-end gap-1.5 text-right shrink-0">
@@ -562,7 +550,7 @@ export default function App() {
             </Section>
           </main>
 
-          <footer className="pt-6 pb-8 border-t border-cyan-400/20">
+          <footer className="pt-6 pb-8 border-t border-cyan-400/20 space-y-4">
             <div className="flex items-center justify-between">
               <p className="text-xs text-white/40">© {new Date().getFullYear()}</p>
               {showBackToTop && (
@@ -579,6 +567,18 @@ export default function App() {
                 </a>
               )}
             </div>
+            <p className="text-xs text-white/40">
+              Made with React, Vite, and Tailwind CSS. Background: an aperiodic{" "}
+              <a
+                href="https://en.wikipedia.org/wiki/Einstein_problem"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-cyan-400/80 hover:text-cyan-400 transition-colors"
+              >
+                Einstein tiling
+              </a>
+              .
+            </p>
           </footer>
         </div>
       </div>
