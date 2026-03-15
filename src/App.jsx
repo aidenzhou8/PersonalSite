@@ -254,7 +254,7 @@ function TextEntry({ overline, title, rightText, body, bodyContent, href, locati
       <div className="flex flex-col items-end gap-1.5 text-right shrink-0">
       <p className="font-mono text-xs font-medium uppercase tracking-wider text-theme-text-dim whitespace-nowrap">{rightText}</p>
       {location ? (
-        <span className="text-xs text-theme-text-dim whitespace-nowrap">{location}</span>
+        <span className="font-mono text-xs text-theme-text-dim whitespace-nowrap">{location}</span>
       ) : null}
     </div>
   );
