@@ -396,7 +396,7 @@ export default function App() {
   return (
     <>
       <style>{`
-        @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Poppins:wght@300;400;500;600;700&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Poppins:wght@300;400;500;600;700&display=swap");
       `}</style>
       <div className="min-h-screen bg-theme-bg text-theme-text antialiased transition-colors duration-300 [font-family:'Poppins',Inter,ui-sans-serif,system-ui,-apple-system,sans-serif]" data-theme={theme}>
         <BackgroundArt />
@@ -477,7 +477,7 @@ export default function App() {
                   <div className="flex items-start justify-end md:pt-0.5">
                     <div className="flex flex-col items-end gap-1.5 text-right shrink-0">
                       <p className="font-mono text-xs font-medium uppercase tracking-wider text-theme-text-dim whitespace-nowrap">{education.years}</p>
-                      <span className="text-xs text-theme-text-dim whitespace-nowrap">{education.location}</span>
+                      <span className="font-mono text-xs text-theme-text-dim whitespace-nowrap">{education.location}</span>
                     </div>
                   </div>
                 </div>
