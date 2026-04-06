@@ -18,7 +18,7 @@ const recentNews = [
   {
     date: "Summer 2026",
     title: "Incoming intern @ Cohere",
-    body: "Advancing frontier models as part of the Sovereign AI team.",
+    body: "Advancing frontier models for enterprise and government solutions as part of the Sovereign AI team.",
     href: "https://cohere.com/",
   },
   {
