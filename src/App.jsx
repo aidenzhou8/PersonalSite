@@ -340,9 +340,9 @@ export default function App() {
   const [visibleSections, setVisibleSections] = useState({ news: true });
   const [theme, setTheme] = useState(() => {
     if (typeof window !== "undefined") {
-      return localStorage.getItem(THEME_KEY) || "dark";
+      return localStorage.getItem(THEME_KEY) || "light";
     }
-    return "dark";
+    return "light";
   });
 
   const toggleTheme = () => {
