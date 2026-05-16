@@ -44,7 +44,7 @@ const recentNews = [
   {
     date: "Now",
     title: "Adaptive graphs for physics simulation",
-    body: "Developing GNN-based methods for fluid and granular simulation.",
+    body: "Developing GNN-based methods for fluid and granular simulation. Under review at ICML AI4Physics Workshop. ",
   },
 ];
 
@@ -154,7 +154,7 @@ const poetry = [
 const education = {
   institution: "Yale University",
   degree: "B.S. in Computer Science and Mathematics",
-  gpa: "4.0/4.0",
+  gpa: "3.93/4.0",
   years: "Aug. 2024 — May 2028",
   location: "New Haven, CT",
   selectedCoursework: "Algorithms · Computational Vision · Deep Learning on Graph Structured Data · Advanced Linear Algebra · Analysis I / II · Discrete Math · Measure Theory ·",
