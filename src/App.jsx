@@ -17,7 +17,7 @@ const profile = {
 const recentNews = [
   {
     date: "Summer 2026",
-    title: "Incoming intern @ Cohere",
+    title: "Machine Learning Intern @ Cohere",
     body: "Advancing frontier models for enterprise and government use as part of the Sovereign AI team.",
     href: "https://cohere.com/",
   },
