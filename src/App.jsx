@@ -23,28 +23,8 @@ const recentNews = [
   },
   {
     date: "Now",
-    title: "AI safety research with SPAR",
-    body: "Applying fluid benchmarking to agentic evaluations, reducing cost and noise. Mentored by Diogo Cruz and Vamshi Bonagiri.",
-    bodyContent: (
-      <>
-        Applying{" "}
-        <a
-          href="https://allenai.org/blog/fluid-benchmarking"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-theme-accent-muted hover:text-theme-accent transition-colors"
-        >
-          fluid benchmarking
-        </a>{" "}
-        to agentic evaluations, reducing cost and noise. Mentored by Diogo Cruz and Vamshi Bonagiri.
-      </>
-    ),
-    href: "https://sparai.org/",
-  },
-  {
-    date: "Now",
     title: "Adaptive graphs for physics simulation",
-    body: "Developing GNN-based methods for fluid and granular simulation. Under review at ICML AI4Physics Workshop. ",
+    body: "Developing GNN-based methods for fluid and granular simulation. Under review at AI4Physics @ ICML 2026. ",
   },
 ];
 
@@ -55,7 +35,29 @@ const experience = [
     period: "Aug. 2025 — Present",
     location: "New Haven, CT",
     summary:
-      "Lead office hours, workshops, and 1-on-1 tutoring for Calculus I and II, supporting 100+ students in mastering proofs, core concepts, and computational techniques.",
+      "Lead office hours, workshops, and 1-on-1 tutoring for Calculus I/II and Real Analysis, supporting 100+ students in mastering proofs, core concepts, and computational techniques.",
+  },
+  {
+    org: "Supervised Program for Alignment Research",
+    role: "Research Intern",
+    period: "Feb. 2026 — May 2026",
+    location: "Remote",
+    summary:
+      "Applied fluid benchmarking to safety evaluations, reducing cost and noise. Mentored by Diogo Cruz and Vamshi Bonagiri. Under review at NeurIPS 2026.",
+    summaryContent: (
+      <>
+        Applied{" "}
+        <a
+          href="https://allenai.org/blog/fluid-benchmarking"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-theme-accent-muted hover:text-theme-accent transition-colors"
+        >
+          fluid benchmarking
+        </a>{" "}
+        to agentic evaluations, reducing cost and noise. Mentored by Diogo Cruz and Vamshi Bonagiri. Under review at NeurIPS 2026.
+      </>
+    ),
   },
   {
     org: "Wu Tsai Institute",
@@ -520,7 +522,7 @@ export default function App() {
               <div className="space-y-10">
                 <div>
                   <p className="mb-6 text-[15px] leading-relaxed text-theme-text-muted">
-                    I'm a student journalist on the managing boards of two Yale publications. As Data Editor at the{" "}
+                    I'm a student journalist on the managing boards of two Yale publications. As Multimedia Managing Editor at the{" "}
                     <a
                       href="https://yaledailynews.com"
                       target="_blank"
@@ -529,7 +531,7 @@ export default function App() {
                     >
                       Yale Daily News
                     </a>
-                    , I pitch data-driven stories, scrape and analyze web data, develop backend tools for more creative news presentations, and produce graphs, maps, and animations. On top of mentoring a desk of ~15 students, I've sought to advance our in-house technology by developing interactive stories and tools. I'm also Features Editor and Senior Staff Writer at the{" "}
+                    , I lead a team of 7 desk editors and 50+ multimedia staffers in producing daily visual, video, and audio content, direct audience strategy for a newspaper reaching 30,000 readers, and run professional development sessions with industry experts. Previously, as Data Editor, I pitched data-driven stories and built interactive tools for the newsroom. I'm also Features Editor and Senior Staff Writer at the{" "}
                     <a
                       href="https://www.yalescientific.org"
                       target="_blank"
