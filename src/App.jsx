@@ -46,7 +46,7 @@ const experience = [
       "Extended fluid benchmarking to safety evaluations, reducing cost whilst preserving true model rankings. Paper accepted at CTB @ ICML 2026 and under review at NeurIPS 2026. Mentored by Diogo Cruz and Vamshi Bonagiri.",
     summaryContent: (
       <>
-        Applied{" "}
+        Extended{" "}
         <a
           href="https://allenai.org/blog/fluid-benchmarking"
           target="_blank"
@@ -55,7 +55,7 @@ const experience = [
         >
           fluid benchmarking
         </a>{" "}
-        to agentic evaluations, reducing cost whilst preserving true model rankings. Paper accepted at CTB @ ICML 2026 and under review at NeurIPS 2026. Mentored by Diogo Cruz and Vamshi Bonagiri.
+        to safety evaluations, reducing cost whilst preserving true model rankings. Paper accepted at CTB @ ICML 2026 and under review at NeurIPS 2026. Mentored by Diogo Cruz and Vamshi Bonagiri.
       </>
     ),
   },
