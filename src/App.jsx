@@ -24,7 +24,7 @@ const recentNews = [
   {
     date: "Now",
     title: "Adaptive graphs for physics simulation",
-    body: "Developing GNN-based methods for fluid and granular simulation. Under review at AI4Physics @ ICML 2026. ",
+    body: "Developing GNN-based methods for fluid and granular simulation. Paper accepted at AI4Physics @ ICML 2026 and in preparation for ICLR 2027.",
   },
 ];
 
@@ -43,7 +43,7 @@ const experience = [
     period: "Feb. 2026 — May 2026",
     location: "Remote",
     summary:
-      "Applied fluid benchmarking to safety evaluations, reducing cost and noise. Mentored by Diogo Cruz and Vamshi Bonagiri. Under review at NeurIPS 2026.",
+      "Applied fluid benchmarking to safety evaluations, reducing cost and noise. Mentored by Diogo Cruz and Vamshi Bonagiri. Accepted at CTB @ ICML 2026 and under review at NeurIPS 2026.",
     summaryContent: (
       <>
         Applied{" "}
@@ -55,7 +55,7 @@ const experience = [
         >
           fluid benchmarking
         </a>{" "}
-        to agentic evaluations, reducing cost and noise. Mentored by Diogo Cruz and Vamshi Bonagiri. Under review at NeurIPS 2026.
+        to agentic evaluations, reducing cost and noise. Mentored by Diogo Cruz and Vamshi Bonagiri. Paper accepted at CTB @ ICML 2026 and under review at NeurIPS 2026.
       </>
     ),
   },
