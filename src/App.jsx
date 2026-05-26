@@ -43,7 +43,7 @@ const experience = [
     period: "Feb. 2026 — May 2026",
     location: "Remote",
     summary:
-      "Applied fluid benchmarking to safety evaluations, reducing cost and noise. Mentored by Diogo Cruz and Vamshi Bonagiri. Accepted at CTB @ ICML 2026 and under review at NeurIPS 2026.",
+      "Extended fluid benchmarking to safety evaluations, reducing cost and noise. Mentored by Diogo Cruz and Vamshi Bonagiri. Paper accepted at CTB @ ICML 2026 and under review at NeurIPS 2026.",
     summaryContent: (
       <>
         Applied{" "}
