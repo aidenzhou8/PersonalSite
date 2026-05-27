@@ -440,7 +440,7 @@ export default function App() {
                   {profile.name}
                 </h1>
                 <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-theme-text-muted">
-                  I'm a sophomore at Yale studying Computer Science and Mathematics. I'm drawn to the intersection of theory and practice — from analysis, algorithms, and foundational machine learning to AI safety and computational neuroscience. I aim to develop scalable systems that serve the public interest. Beyond that, I write, play chess competitively, and tutor math.
+                  I'm a junior at Yale studying Computer Science and Mathematics. I'm drawn to the intersection of theory and practice — from analysis, algorithms, and foundational machine learning to AI safety and computational neuroscience. I aim to develop scalable systems that serve the public interest. Beyond that, I write, play chess competitively, and tutor math.
                 </p>
                 <p className="mt-4 text-xs font-medium uppercase tracking-wider text-theme-text-dim">
                   {profile.location}
