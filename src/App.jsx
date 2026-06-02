@@ -60,7 +60,7 @@ const experience = [
     period: "Feb. 2026 — May 2026",
     location: "Remote",
     summary:
-      "Extended fluid benchmarking to safety evaluations, reducing cost whilst preserving true model rankings. Paper accepted at CTB @ ICML 2026 and under review at NeurIPS 2026. Mentored by Diogo Cruz and Vamshi Bonagiri.",
+      "Extended fluid benchmarking to safety evaluations, reducing cost whilst preserving true model rankings. Paper accepted at AI4GOOD @ ICML 2026 and under review at NeurIPS 2026. Mentored by Diogo Cruz and Vamshi Bonagiri.",
     summaryContent: (
       <>
         Extended{" "}
@@ -72,16 +72,16 @@ const experience = [
         >
           fluid benchmarking
         </a>{" "}
-        to safety evaluations, reducing cost whilst preserving true model rankings. Paper accepted at CTB @ ICML 2026 and under review at NeurIPS 2026. Mentored by Diogo Cruz and Vamshi Bonagiri.
+        to safety evaluations, reducing cost whilst preserving true model rankings. Paper accepted at AI4GOOD @ ICML 2026 and under review at NeurIPS 2026. Mentored by Diogo Cruz and Vamshi Bonagiri.
         <p className="mt-3 text-[13px] text-theme-text-dim italic">
           Spagliardi, F.*, Silva, M.*, Datta, A.*, <strong>Zhou, A.</strong>, Bonagiri, V., Cruz, D. (2026). Efficient Safety Benchmarking via Item Response Theory.{" "}
           <a
-            href="https://sites.google.com/view/icml-ctb/home"
+            href="https://trustworthy-ai-for-good.github.io/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-theme-accent-muted hover:text-theme-accent transition-colors not-italic"
           >
-            ICML 2026 Workshop on Combining Theory and Benchmarks
+            ICML 2026 Workshop on Trustworthy AI for Good
           </a>
           .
         </p>
