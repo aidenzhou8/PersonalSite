@@ -25,6 +25,7 @@ const recentNews = [
     date: "Now",
     title: "Adaptive graphs for physics simulation",
     body: "Developing GNN-based methods for fluid and granular simulation. Paper accepted at AI4Physics @ ICML 2026 and in preparation for ICLR 2027.",
+    href: "/adaptive-interaction-graphs.pdf",
     bodyContent: (
       <>
         Developing GNN-based methods for fluid and granular simulation. Paper accepted at AI4Physics @ ICML 2026 and in preparation for ICLR 2027.
