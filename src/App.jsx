@@ -18,7 +18,7 @@ const recentNews = [
   {
     date: "Summer 2026",
     title: "Machine Learning Intern @ Cohere",
-    body: "Advancing frontier models for public sector use as part of the Sovereign AI team.",
+    body: "Machine Learning Intern on Cohere’s Sovereign AI team, contributing to data infrastructure and foundational model post-training for the public sector.",
     href: "https://cohere.com/",
   },
   {
@@ -95,6 +95,7 @@ const experience = [
     role: "Research Intern",
     period: "Jan. 2025 — Oct. 2025",
     location: "New Haven, CT",
+    href: "/wu-tsai-proposal.pdf",
     summary:
       "Developed and tested bio-plausible computer vision models using PyTorch, Nvdiffrast, and MATLAB. Designed a scalable ETL for 50+ GB of ECoG data; managed GPU workflows with CUDA and Slurm. Mentored by Daniel Calbick and Professor Ilker Yildirim at the Cognitive and Neural Computation Lab.",
     summaryContent: (
@@ -117,7 +118,7 @@ const experience = [
     role: "Machine Learning Researcher",
     period: "May 2025 — Aug. 2025",
     location: "Remote",
-    href: "https://aniruddh-alt.github.io/from-tokens-to-semantics-website/",
+    href: "/from-tokens-to-semantics.pdf",
     summary:
       "Co-authored a paper on how polysemanticity develops during language model pretraining. Analyzed feature clusters across Pythia checkpoints to study how neuron activation spaces evolve from exploration to specialization. Presented at MechInterp @ NeurIPS 2025.",
     summaryContent: (
