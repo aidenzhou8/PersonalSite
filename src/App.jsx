@@ -60,6 +60,7 @@ const experience = [
     role: "Research Intern",
     period: "Feb. 2026 — May 2026",
     location: "Remote",
+    href: "/efficient-safety-benchmark.pdf",
     summary:
       "Extended fluid benchmarking to safety evaluations, reducing cost whilst preserving true model rankings. Paper accepted at AI4GOOD @ ICML 2026 and under review at NeurIPS 2026. Mentored by Diogo Cruz and Vamshi Bonagiri.",
     summaryContent: (
@@ -116,20 +117,12 @@ const experience = [
     role: "Machine Learning Researcher",
     period: "May 2025 — Aug. 2025",
     location: "Remote",
+    href: "https://aniruddh-alt.github.io/from-tokens-to-semantics-website/",
     summary:
       "Co-authored a paper on how polysemanticity develops during language model pretraining. Analyzed feature clusters across Pythia checkpoints to study how neuron activation spaces evolve from exploration to specialization. Presented at MechInterp @ NeurIPS 2025.",
     summaryContent: (
       <>
-        Co-authored a{" "}
-        <a
-          href="https://aniruddh-alt.github.io/from-tokens-to-semantics-website/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-theme-accent-muted hover:text-theme-accent transition-colors"
-        >
-          paper
-        </a>
-        {" "}on how polysemanticity develops during language model pretraining. Analyzed feature clusters across Pythia checkpoints to study how neuron activation spaces evolve from exploration to specialization. Presented at MechInterp @ NeurIPS 2025.
+        Co-authored a paper on how polysemanticity develops during language model pretraining. Analyzed feature clusters across Pythia checkpoints to study how neuron activation spaces evolve from exploration to specialization. Presented at MechInterp @ NeurIPS 2025.
         <p className="mt-3 text-[13px] text-theme-text-dim italic">
           Limaye, S.*, Ramesh, A.*, <strong>Zhou, A.*</strong>, et al. (2025). From Tokens to Semantics: The Emergence and Stabilization of Polysemanticity in Language Models.{" "}
           <a
@@ -538,6 +531,7 @@ export default function App() {
                     rightText={item.period}
                     body={item.summary}
                     bodyContent={item.summaryContent}
+                    href={item.href}
                     location={item.location}
                   />
                 ))}
