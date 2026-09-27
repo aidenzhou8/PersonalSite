@@ -4,7 +4,7 @@ import { EinsteinTiling } from "./EinsteinTiling";
 
 const profile = {
   name: "Aiden Zhou",
-  location: "New Haven / Vancouver",
+  location: "Toronto / New Haven / Vancouver",
   email: "aiden.zhou@yale.edu",
   links: [
     { label: "GitHub", href: "https://github.com/aidenzhou8", icon: Github },
@@ -25,24 +25,6 @@ const recentNews = [
     date: "Now",
     title: "Adaptive graphs for physics simulation",
     body: "Developing GNN-based methods for fluid and granular simulation. Paper accepted at AI4Physics @ ICML 2026 and in preparation for ICLR 2027.",
-    href: "https://openreview.net/pdf?id=IcLmHEb5HO",
-    bodyContent: (
-      <>
-        Developing GNN-based methods for fluid and granular simulation. Paper accepted at AI4Physics @ ICML 2026 and in preparation for ICLR 2027.
-        <p className="mt-3 text-[13px] text-theme-text-dim italic">
-          <strong>Zhou, A.</strong> (2026). Adaptive Interaction Graphs for Particle Simulation.{" "}
-          <a
-            href="https://ai4physics-workshop.github.io/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-theme-accent-muted hover:text-theme-accent transition-colors not-italic"
-          >
-            ICML 2026 Workshop on AI for Physics
-          </a>
-          .
-        </p>
-      </>
-    ),
   },
 ];
 
@@ -60,7 +42,6 @@ const experience = [
     role: "Research Intern",
     period: "Feb. 2026 — May 2026",
     location: "Remote",
-    href: "/efficient-safety-benchmark.pdf",
     summary:
       "Extended fluid benchmarking to safety evaluations, reducing cost whilst preserving true model rankings. Paper accepted at AI4GOOD @ ICML 2026. Mentored by Diogo Cruz and Vamshi Bonagiri.",
     summaryContent: (
@@ -75,18 +56,6 @@ const experience = [
           fluid benchmarking
         </a>{" "}
         to safety evaluations, reducing cost whilst preserving true model rankings. Paper accepted at AI4GOOD @ ICML 2026. Mentored by Diogo Cruz and Vamshi Bonagiri.
-        <p className="mt-3 text-[13px] text-theme-text-dim italic">
-          Spagliardi, F.*, Silva, M.*, Datta, A.*, <strong>Zhou, A.</strong>, Bonagiri, V., Cruz, D. (2026). Efficient Safety Benchmarking via Item Response Theory.{" "}
-          <a
-            href="https://trustworthy-ai-for-good.github.io/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-theme-accent-muted hover:text-theme-accent transition-colors not-italic"
-          >
-            ICML 2026 Workshop on Trustworthy AI for Good
-          </a>
-          .
-        </p>
       </>
     ),
   },
@@ -118,26 +87,47 @@ const experience = [
     role: "Machine Learning Researcher",
     period: "May 2025 — Aug. 2025",
     location: "Remote",
-    href: "/from-tokens-to-semantics.pdf",
     summary:
       "Co-authored a paper on how polysemanticity develops during language model pretraining. Analyzed feature clusters across Pythia checkpoints to study how neuron activation spaces evolve from exploration to specialization. Presented at MechInterp @ NeurIPS 2025.",
-    summaryContent: (
-      <>
-        Co-authored a paper on how polysemanticity develops during language model pretraining. Analyzed feature clusters across Pythia checkpoints to study how neuron activation spaces evolve from exploration to specialization. Presented at MechInterp @ NeurIPS 2025.
-        <p className="mt-3 text-[13px] text-theme-text-dim italic">
-          Limaye, S.*, Ramesh, A.*, <strong>Zhou, A.*</strong>, et al. (2025). From Tokens to Semantics: The Emergence and Stabilization of Polysemanticity in Language Models.{" "}
-          <a
-            href="https://mechinterpworkshop.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-theme-accent-muted hover:text-theme-accent transition-colors not-italic"
-          >
-            NeurIPS 2025 Workshop on Mechanistic Interpretability
-          </a>
-          .
-        </p>
-      </>
-    ),
+  },
+];
+
+const papers = [
+  {
+    title: "Adaptive Interaction Graphs for Particle Simulation",
+    href: "https://openreview.net/pdf?id=IcLmHEb5HO",
+    year: "2026",
+    authors: [{ name: "Zhou, A.", me: true }],
+    venue: "ICML 2026 Workshop on AI for Physics",
+    venueHref: "https://ai4physics-workshop.github.io/",
+  },
+  {
+    title: "Efficient Safety Benchmarking via Item Response Theory",
+    href: "/efficient-safety-benchmark.pdf",
+    year: "2026",
+    authors: [
+      { name: "Spagliardi, F.*" },
+      { name: "Silva, M.*" },
+      { name: "Datta, A.*" },
+      { name: "Zhou, A.", me: true },
+      { name: "Bonagiri, V." },
+      { name: "Cruz, D." },
+    ],
+    venue: "ICML 2026 Workshop on Trustworthy AI for Good",
+    venueHref: "https://trustworthy-ai-for-good.github.io/",
+  },
+  {
+    title: "From Tokens to Semantics: The Emergence and Stabilization of Polysemanticity in Language Models",
+    href: "/from-tokens-to-semantics.pdf",
+    year: "2025",
+    authors: [
+      { name: "Limaye, S.*" },
+      { name: "Ramesh, A.*" },
+      { name: "Zhou, A.*", me: true },
+      { name: "et al." },
+    ],
+    venue: "NeurIPS 2025 Workshop on Mechanistic Interpretability",
+    venueHref: "https://mechinterpworkshop.com/",
   },
 ];
 
@@ -196,6 +186,7 @@ const navItems = [
   ["news", "News"],
   ["education", "Education"],
   ["experience", "Experience"],
+  ["papers", "Papers"],
   ["writing", "Writing"],
   ["chess", "Chess"],
 ];
@@ -314,6 +305,50 @@ function TextEntry({ overline, title, rightText, body, bodyContent, href, locati
   );
 }
 
+function PaperEntry({ title, href, year, authors, venue, venueHref }) {
+  return (
+    <div className="grid gap-4 py-6 md:grid-cols-[1fr_120px] md:gap-8">
+      <div>
+        <h3 className="text-lg font-medium text-theme-text">
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="interactive group transition-colors hover:text-theme-accent"
+          >
+            {title.slice(0, title.lastIndexOf(" "))}{" "}
+            <span className="whitespace-nowrap">
+              {title.slice(title.lastIndexOf(" ") + 1)}
+              <ArrowUpRight className="ml-1.5 inline-block h-4 w-4 -translate-y-0.5 opacity-60 group-hover:opacity-100" />
+            </span>
+          </a>
+        </h3>
+        <p className="mt-1.5 max-w-2xl text-[13px] leading-relaxed text-theme-text-dim italic">
+          {authors.map((author, i) => (
+            <span key={`${author.name}-${i}`}>
+              {i > 0 ? ", " : null}
+              {author.me ? <strong>{author.name}</strong> : author.name}
+            </span>
+          ))}
+          {" "}
+          <a
+            href={venueHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-theme-accent-muted hover:text-theme-accent transition-colors not-italic"
+          >
+            {venue}
+          </a>
+          .
+        </p>
+      </div>
+      <div className="flex items-start justify-end md:pt-0.5">
+        <p className="font-mono text-xs font-medium uppercase tracking-wider text-theme-text-dim whitespace-nowrap">{year}</p>
+      </div>
+    </div>
+  );
+}
+
 function ChessGameEmbed({ url }) {
   const [expanded, setExpanded] = useState(false);
   return (
@@ -377,7 +412,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const sectionIds = ["news", "education", "experience", "writing", "chess"];
+    const sectionIds = ["news", "education", "experience", "papers", "writing", "chess"];
     const activeObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -530,6 +565,18 @@ export default function App() {
             </Section>
 
             <Section
+              id="papers"
+              title="Papers"
+              isActive={activeSection === "papers"}
+              isVisible={visibleSections.papers}>
+              <div className="divide-y divide-theme-border">
+                {papers.map((paper) => (
+                  <PaperEntry key={paper.title} {...paper} />
+                ))}
+              </div>
+            </Section>
+
+            <Section
               id="writing"
               title="Writing"
               isActive={activeSection === "writing"}
@@ -537,7 +584,7 @@ export default function App() {
               <div className="space-y-10">
                 <div>
                   <p className="mb-6 text-[15px] leading-relaxed text-theme-text-muted">
-                    I'm a student journalist on the managing boards of two Yale publications. As Multimedia Managing Editor at the{" "}
+                    I was a student journalist on the managing boards of two Yale publications. As Data Editor on the{" "}
                     <a
                       href="https://yaledailynews.com"
                       target="_blank"
@@ -546,7 +593,7 @@ export default function App() {
                     >
                       Yale Daily News
                     </a>
-                    , I lead a team of 7 desk editors and 50+ multimedia staffers in producing daily visual, video, and audio content, direct audience strategy for a newspaper reaching 30,000 readers, and run professional development sessions with industry experts. Previously, as Data Editor, I pitched data-driven stories and built interactive tools for the newsroom. I'm also Features Editor and Senior Staff Writer at the{" "}
+                    , I pitched data-driven stories and built interactive tools and graphics for the newsroom. I was also Features Editor and Senior Staff Writer at the{" "}
                     <a
                       href="https://www.yalescientific.org"
                       target="_blank"
