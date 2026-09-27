@@ -62,7 +62,7 @@ const experience = [
     location: "Remote",
     href: "/efficient-safety-benchmark.pdf",
     summary:
-      "Extended fluid benchmarking to safety evaluations, reducing cost whilst preserving true model rankings. Paper accepted at AI4GOOD @ ICML 2026 and under review at NeurIPS 2026. Mentored by Diogo Cruz and Vamshi Bonagiri.",
+      "Extended fluid benchmarking to safety evaluations, reducing cost whilst preserving true model rankings. Paper accepted at AI4GOOD @ ICML 2026. Mentored by Diogo Cruz and Vamshi Bonagiri.",
     summaryContent: (
       <>
         Extended{" "}
@@ -74,7 +74,7 @@ const experience = [
         >
           fluid benchmarking
         </a>{" "}
-        to safety evaluations, reducing cost whilst preserving true model rankings. Paper accepted at AI4GOOD @ ICML 2026 and under review at NeurIPS 2026. Mentored by Diogo Cruz and Vamshi Bonagiri.
+        to safety evaluations, reducing cost whilst preserving true model rankings. Paper accepted at AI4GOOD @ ICML 2026. Mentored by Diogo Cruz and Vamshi Bonagiri.
         <p className="mt-3 text-[13px] text-theme-text-dim italic">
           Spagliardi, F.*, Silva, M.*, Datta, A.*, <strong>Zhou, A.</strong>, Bonagiri, V., Cruz, D. (2026). Efficient Safety Benchmarking via Item Response Theory.{" "}
           <a
@@ -285,42 +285,32 @@ function TextEntry({ overline, title, rightText, body, bodyContent, href, locati
     </div>
   );
 
-  const content = (
-      <div className="grid gap-4 py-6 md:grid-cols-[1fr_120px] md:gap-8">
+  const linked = href && href !== "#";
+  const titleEl = linked ? (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="interactive group inline-flex items-center gap-1.5 text-lg font-medium text-theme-text transition-colors hover:text-theme-accent"
+    >
+      {title}
+      <ArrowUpRight className="h-4 w-4 opacity-60 group-hover:opacity-100" />
+    </a>
+  ) : (
+    title
+  );
+
+  return (
+    <div className="grid gap-4 py-6 md:grid-cols-[1fr_120px] md:gap-8">
       <div>
         {overline ? <p className="mb-1 text-xs font-medium uppercase tracking-wider text-theme-text-dim">{overline}</p> : null}
-        <h3 className="text-lg font-medium text-theme-text">{title}</h3>
+        <h3 className="text-lg font-medium text-theme-text">{titleEl}</h3>
         <p className="mt-1.5 max-w-2xl text-[15px] leading-relaxed text-theme-text-muted">{bodyContent ?? body}</p>
       </div>
       <div className="flex items-start justify-end md:pt-0.5">
         {rightColumn}
       </div>
     </div>
-  );
-
-  if (!href || href === "#") return content;
-
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="interactive block transition-transform duration-200 hover:opacity-90"
-    >
-      <div className="group grid gap-4 py-6 md:grid-cols-[1fr_120px] md:gap-8">
-        <div>
-          {overline ? <p className="mb-1 text-xs font-medium uppercase tracking-wider text-theme-text-dim">{overline}</p> : null}
-          <h3 className="inline-flex items-center gap-1.5 text-lg font-medium text-theme-text group-hover:text-theme-accent transition-colors">
-            {title}
-            <ArrowUpRight className="h-4 w-4 opacity-60 group-hover:opacity-100" />
-          </h3>
-          <p className="mt-1.5 max-w-2xl text-[15px] leading-relaxed text-theme-text-muted">{bodyContent ?? body}</p>
-        </div>
-        <div className="flex items-start justify-end md:pt-0.5">
-          {rightColumn}
-        </div>
-      </div>
-    </a>
   );
 }
 
