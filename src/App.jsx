@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import { Github, Linkedin, Mail, FileText, ArrowUpRight, ArrowUp, ChevronDown, Sun, Moon } from "lucide-react";
 import { EinsteinTiling } from "./EinsteinTiling";
 
@@ -386,6 +387,11 @@ function ChessGameEmbed({ url }) {
 const THEME_KEY = "personal-site-theme";
 
 export default function App() {
+  const { pathname } = useLocation();
+  const sectionIds = navItems.map(([id]) => id);
+  const only = pathname === "/" ? null : pathname.replace(/^\/|\/$/g, "");
+  const unknown = Boolean(only && !sectionIds.includes(only));
+  const show = (id) => !only || only === id;
   const [activeSection, setActiveSection] = useState("news");
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [visibleSections, setVisibleSections] = useState({ news: true });
@@ -403,6 +409,10 @@ export default function App() {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  useEffect(() => {
     const handleScroll = () => {
       setShowBackToTop(window.scrollY > 400);
     };
@@ -412,6 +422,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    if (only) return undefined;
     const sectionIds = ["news", "education", "experience", "papers", "writing", "chess"];
     const activeObserver = new IntersectionObserver(
       (entries) => {
@@ -442,7 +453,7 @@ export default function App() {
       activeObserver.disconnect();
       fadeObserver.disconnect();
     };
-  }, []);
+  }, [only]);
 
   return (
     <>
@@ -457,7 +468,7 @@ export default function App() {
             <div className="flex items-start justify-between gap-4">
               <div className="min-w-0 flex-1">
                 <h1 className="text-4xl font-semibold tracking-tight text-theme-text md:text-5xl">
-                  {profile.name}
+                  <Link to="/" className="text-inherit">{profile.name}</Link>
                 </h1>
                 <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-theme-text-muted">
                   I'm a junior at Yale studying Computer Science and Mathematics. I'm drawn to the intersection of theory and practice — from analysis, algorithms, and foundational machine learning to AI safety and computational neuroscience. I aim to develop scalable systems that serve the public interest. Beyond that, I write, play chess competitively, and tutor math.
@@ -483,23 +494,24 @@ export default function App() {
 
             <nav className="mt-10 flex flex-wrap gap-x-8 gap-y-2 border-t border-theme-border pt-8 text-sm">
               {navItems.map(([href, label]) => (
-                <a
+                <Link
                   key={href}
-                  href={`#${href}`}
+                  to={`/${href}`}
                   className="interactive text-theme-text-dim transition-all duration-200 hover:text-theme-accent hover:scale-105"
                 >
                   {label}
-                </a>
+                </Link>
               ))}
             </nav>
           </header>
 
           <main className="border-t border-theme-border pt-4 pb-24 md:pt-6">
-            <Section
+            {unknown ? <Navigate to="/" replace /> : null}
+            {show("news") && <Section
               id="news"
               title="Recent News"
-              isActive={activeSection === "news"}
-              isVisible={visibleSections.news}>
+              isActive={!only && activeSection === "news"}
+              isVisible={only ? true : visibleSections.news}>
               <div className="divide-y divide-theme-border">
                 {recentNews.map((item) => (
                   <TimelineItem
@@ -512,13 +524,13 @@ export default function App() {
                   />
                 ))}
               </div>
-            </Section>
+            </Section>}
 
-            <Section
+            {show("education") && <Section
               id="education"
               title="Education"
-              isActive={activeSection === "education"}
-              isVisible={visibleSections.education}>
+              isActive={!only && activeSection === "education"}
+              isVisible={only ? true : visibleSections.education}>
               <div className="divide-y divide-theme-border">
                 <div className="grid gap-4 py-6 md:grid-cols-[1fr_120px] md:gap-8">
                   <div>
@@ -541,13 +553,13 @@ export default function App() {
                   </p>
                 </div>
               </div>
-            </Section>
+            </Section>}
 
-            <Section
+            {show("experience") && <Section
               id="experience"
               title="Experience"
-              isActive={activeSection === "experience"}
-              isVisible={visibleSections.experience}>
+              isActive={!only && activeSection === "experience"}
+              isVisible={only ? true : visibleSections.experience}>
               <div className="divide-y divide-theme-border">
                 {experience.map((item) => (
                   <TextEntry
@@ -562,25 +574,25 @@ export default function App() {
                   />
                 ))}
               </div>
-            </Section>
+            </Section>}
 
-            <Section
+            {show("papers") && <Section
               id="papers"
               title="Papers"
-              isActive={activeSection === "papers"}
-              isVisible={visibleSections.papers}>
+              isActive={!only && activeSection === "papers"}
+              isVisible={only ? true : visibleSections.papers}>
               <div className="divide-y divide-theme-border">
                 {papers.map((paper) => (
                   <PaperEntry key={paper.title} {...paper} />
                 ))}
               </div>
-            </Section>
+            </Section>}
 
-            <Section
+            {show("writing") && <Section
               id="writing"
               title="Writing"
-              isActive={activeSection === "writing"}
-              isVisible={visibleSections.writing}>
+              isActive={!only && activeSection === "writing"}
+              isVisible={only ? true : visibleSections.writing}>
               <div className="space-y-10">
                 <div>
                   <p className="mb-6 text-[15px] leading-relaxed text-theme-text-muted">
@@ -644,13 +656,13 @@ export default function App() {
                   </div>
                 </div>
               </div>
-            </Section>
+            </Section>}
 
-            <Section
+            {show("chess") && <Section
               id="chess"
               title="Chess"
-              isActive={activeSection === "chess"}
-              isVisible={visibleSections.chess}>
+              isActive={!only && activeSection === "chess"}
+              isVisible={only ? true : visibleSections.chess}>
               <div className="space-y-4">
                 <p className="text-[15px] leading-relaxed text-theme-text-muted">{chessBlurb}</p>
                 <p className="text-[15px] leading-relaxed text-theme-text-muted">
@@ -667,7 +679,7 @@ export default function App() {
                 </p>
                 <ChessGameEmbed url={chessEmbedUrl} />
               </div>
-            </Section>
+            </Section>}
           </main>
 
           <footer className="pt-6 pb-8 border-t border-theme-border space-y-4">
